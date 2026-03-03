@@ -2060,6 +2060,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#casino-roulette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /casino roulette
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="/casino roulette">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Необходимые права бота
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Параметры
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4102,6 +4141,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#casino-roulette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        /casino roulette
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="/casino roulette">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Необходимые права бота
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Параметры
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4918,6 +4996,69 @@
 </ul>
 </div>
 <hr />
+<h2 id="casino-roulette">/casino roulette</h2>
+<div class="admonition info">
+<p>Сыграть в рулетку</p>
+<p>Ограничение на использование команды - раз в <code>15</code> секунд</p>
+<p>Канал для создания многопользовательской рулетки настраивается <a href="../config/#config-economy-setup">здесь</a>, параметр <code>casino_channel</code></p>
+<p>Существует 2 типа игры:</p>
+<ul>
+<li>
+<p><code>Многопользовательская</code>:<br />
+    При вводе команды с данном типом рулетки вы увидите сообщение в чате об успешном создании игры (или ошибки, видимой только вам)<br />
+    Далее в настроенный канал отправляется сообщение с информацией об игре:  </p>
+<ul>
+<li>Информация о ставке, цвете и упоминание пользователя, начавшего игру</li>
+<li>Информация о ставке, цвете и упоминание пользователей, присоединившихся к игре в формате: цвет -&gt; упоминание, ставка  </li>
+</ul>
+<p>Каждый новый присоединившийся участник продлевает таймер окончания игры на <code>60</code> секунд</p>
+</li>
+<li>
+<p><code>Одиночная</code>:<br />
+    После ввода команды вы сразу увидите результат игры с информацией:  </p>
+<ul>
+<li><code>Ваша ставка</code></li>
+<li><code>Выпавший цвет</code></li>
+<li><code>Результат игры</code> - вы проиграли / выйграли</li>
+<li><code>Ваш новый баланс</code></li>
+</ul>
+</li>
+</ul>
+<p>Цвета, на которой можно поставить:</p>
+<ul>
+<li>Красное - при победе ставка умножается на <code>2</code>, шанс выпадения - <code>18 / 37</code></li>
+<li>Черное - при победе ставка умножается на <code>2</code>, шанс выпадения - <code>18 / 37</code></li>
+<li>Зелёное - при победе ставка умножается на <code>14</code>, шанс выпадения - <code>1 / 37</code></li>
+</ul>
+<h3 id="_64">Необходимые права бота</h3>
+<ul>
+<li><code>send_messages</code> - для отправки сообщения о старте рулетки (только в <code>многопользовательском</code> режиме), в текущий канал и в канал для игр казино</li>
+</ul>
+<h3 id="_65">Параметры</h3>
+<ul>
+<li><code>type</code> - тип игры</li>
+<li><code>bet</code> - ставка, ограничение - от <code>5</code> до <code>1000000</code> коинов</li>
+<li><code>color</code> - цвет, на который вы хотите сделать ставку</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Информация в логе (только для одиночного типа рулетки)</p>
+<ul>
+<li><code>Выдал</code> - бот (Упоминание и id)</li>
+<li><code>Пользователь</code> - пользователь, сыгравший в рулетку (Упоминание и id)</li>
+<li><code>Предмет</code> - название коинов</li>
+<li><code>Количество</code> - количество выйгранных (или проигранных) коинов</li>
+<li><code>Причина</code> - всегда <code>игра в рулетку</code> для этой команды</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Возможные ошибки</p>
+<ul>
+<li>У вас недостаточно коинов для ставки</li>
+<li>Не удалось отправить сообщение в текущий канал (об успешном создании многопользовательской игры)</li>
+<li>Канал многопользовательской рулетки не найден или недоступен (Если вы не настроили канал для этого режима)</li>
+</ul>
+</div>
 
 
 
